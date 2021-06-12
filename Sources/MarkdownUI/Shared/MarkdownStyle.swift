@@ -88,6 +88,11 @@ public extension MarkdownStyle {
     func headingAttributes(_ attributes: inout [NSAttributedString.Key: Any], level: Int, paragraphState: ParagraphState) {
         attributes[.font] = makeHeadingFont(level)
         attributes[.paragraphStyle] = makeParagraphStyle(for: paragraphState, spacingMultiple: 0.67)
+		#if os(macOS)
+		attributes[.foregroundColor] = NSColor.labelColor
+		#elseif os(iOS)
+		attributes[.foregroundColor] = UIColor.labelColor
+		#endif
     }
 
     func codeAttributes(_ attributes: inout [NSAttributedString.Key: Any]) {
