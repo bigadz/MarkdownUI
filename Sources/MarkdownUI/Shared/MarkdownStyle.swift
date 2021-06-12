@@ -91,7 +91,7 @@ public extension MarkdownStyle {
 		#if os(macOS)
 		attributes[.foregroundColor] = NSColor.labelColor
 		#elseif os(iOS)
-		attributes[.foregroundColor] = UIColor.labelColor
+		attributes[.foregroundColor] = UIColor.label
 		#endif
     }
 
